@@ -10,7 +10,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Contact from './components/Contact';
 import EmployeeLogin from './components/Employeelogin';
-import Store from './components/store';
+import Store from './components/store'; // ✅ Confirmed correct import casing
 
 function App() {
   const isLoggedIn = !!localStorage.getItem('token');
@@ -21,11 +21,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/store" element={<Store />} />
+        <Route path="/store" element={<Store />} /> {/* ✅ Store page for admin add/remove */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/employee-login" element={<EmployeeLogin />} /> {/* ✅ fixed path */}
+        <Route path="/employee-login" element={<EmployeeLogin />} /> {/* ✅ Consistent casing */}
 
         {/* 🛡️ Protected Route for Add Pet */}
         <Route

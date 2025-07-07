@@ -32,6 +32,7 @@ const NavBar = () => {
         <Link to="/">🏠 Home</Link>
         <Link to="/about">🐶 About</Link>
         <Link to="/shop">🛒 Adoption</Link>
+        <Link to="/store">🛍️ Store</Link> {/* ✅ Added Store Link */}
         <Link to="/contact">📞 Contact</Link>
 
         {isLoggedIn && isAdmin && (
@@ -39,14 +40,16 @@ const NavBar = () => {
             <button className="dropbtn">👑 Admin ▾</button>
             <div className="dropdown-content">
               <Link to="/add-pet">➕ Add Pet</Link>
-              <Link to="/">📦 Manage Adoptions</Link>
+              <Link to="/store">📦 Manage Store</Link> {/* ✅ Admin Store Management */}
               <Link to="/admin/requests">📝 View Requests</Link>
             </div>
           </div>
         )}
 
         {isLoggedIn ? (
-          <span onClick={handleLogout}>🚪 Logout {isAdmin && '👑'}</span>
+          <span onClick={handleLogout} style={{ cursor: 'pointer' }}>
+            🚪 Logout {isAdmin && '👑'}
+          </span>
         ) : (
           <Link to="/login">🔑 Login</Link>
         )}
