@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+  const baseURL = 'https://vitebackend.onrender.com'; // ✅ Hardcoded for Render
 
   const handleLogin = async (e) => {
     e.preventDefault();
