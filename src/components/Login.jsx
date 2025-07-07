@@ -1,6 +1,7 @@
 // src/components/Login.jsx
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // ✅ Import Link
 import NavBar from './NavBar';
 import Footer from './Footer';
 import '../styles/homepage.css';
@@ -27,7 +28,6 @@ const Login = () => {
 
       if (res.ok) {
         localStorage.setItem('token', data.token);
-        // Store isAdmin as string 'true' or 'false'
         localStorage.setItem('isAdmin', data.isAdmin ? 'true' : 'false');
 
         setMessage('Login successful! Redirecting...');
@@ -81,10 +81,10 @@ const Login = () => {
         </form>
         {message && <p className="mt-3 text-center">{message}</p>}
         <p className="mt-3 text-center">
-          Don’t have an account? <a href="/signup">Sign up here</a>
+          Don’t have an account? <Link to="/signup">Sign up here</Link> {/* ✅ Changed */}
         </p>
         <p className="text-center">
-          Employee? <a href="/employee-login">Login here</a>
+          Employee? <Link to="/employee-login">Login here</Link> {/* ✅ Changed */}
         </p>
       </div>
 
