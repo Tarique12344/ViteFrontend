@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/homepage.css';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import { Link } from 'react-router-dom'; // ✅ added
 
 const HomePage = () => {
   return (
@@ -47,7 +48,7 @@ const HomePage = () => {
               <div className="card-body text-center">
                 <h5 className="card-title">Santas Little Helper</h5>
                 <p className="card-text">A cute little small dog with big hopes.</p>
-                <a href="/shop" className="btn btn-warning rounded-pill">Adopt Me</a>
+                <Link to="/shop" className="btn btn-warning rounded-pill">Adopt Me</Link> {/* ✅ replaced */}
               </div>
             </div>
           </div>
@@ -58,7 +59,7 @@ const HomePage = () => {
               <div className="card-body text-center">
                 <h5 className="card-title">Ying &amp; Yang</h5>
                 <p className="card-text">They work in harmony together and never leave each other’s side.</p>
-                <a href="/shop" className="btn btn-warning rounded-pill">Adopt Us</a>
+                <Link to="/shop" className="btn btn-warning rounded-pill">Adopt Us</Link> {/* ✅ replaced */}
               </div>
             </div>
           </div>
