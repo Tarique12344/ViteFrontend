@@ -1,4 +1,7 @@
+// src/components/Signup.jsx
+
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // ✅ Import Link
 import NavBar from './NavBar';
 import Footer from './Footer';
 import '../styles/homepage.css';
@@ -8,7 +11,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+  const baseURL = 'https://vitebackend.onrender.com'; // ✅ Hardcoded for Render
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -73,9 +76,9 @@ const Signup = () => {
             <button type="submit" className="btn btn-success w-100">
               Signup
             </button>
-             <p className="mt-3 text-center">
-          Have an account already? <a href="/login">Login Here</a>
-        </p>
+            <p className="mt-3 text-center">
+              Have an account already? <Link to="/login">Login Here</Link> {/* ✅ Changed */}
+            </p>
           </form>
           {message && <p className="mt-3 text-center">{message}</p>}
         </div>

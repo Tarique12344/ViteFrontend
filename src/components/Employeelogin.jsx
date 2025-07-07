@@ -1,6 +1,7 @@
 // src/components/EmployeeLogin.jsx
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // ✅ Import Link
 import NavBar from './NavBar';
 import Footer from './Footer';
 import '../styles/homepage.css';
@@ -10,7 +11,7 @@ const EmployeeLogin = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+  const baseURL = 'https://vitebackend.onrender.com'; // ✅ Hardcoded for Render
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,7 +28,6 @@ const EmployeeLogin = () => {
 
       if (res.ok) {
         localStorage.setItem('token', data.token);
-        // ✅ Store isAdmin in localStorage to allow NavBar to reflect admin status
         localStorage.setItem('isAdmin', data.isAdmin ? 'true' : 'false');
 
         setMessage('Login successful! Redirecting...');
@@ -83,9 +83,8 @@ const EmployeeLogin = () => {
           </button>
         </form>
         {message && <p className="mt-3 text-center">{message}</p>}
-           <p className="mt-3 text-center"> 
-           
-          Not an Employee? <a href="/login">Login Here</a>
+        <p className="mt-3 text-center">
+          Not an Employee? <Link to="/login">Login Here</Link> {/* ✅ Changed */}
         </p>
       </div>
 
