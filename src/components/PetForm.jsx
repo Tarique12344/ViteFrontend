@@ -18,7 +18,7 @@ const PetForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+  const baseURL = 'https://vitebackend.onrender.com';
 
   // ✅ Check admin access on mount
   useEffect(() => {

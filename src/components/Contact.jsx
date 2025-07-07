@@ -8,7 +8,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', topic: 'general', message: '' });
   const [statusMessage, setStatusMessage] = useState('');
 
-  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+  const baseURL = 'https://vitebackend.onrender.com';
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
