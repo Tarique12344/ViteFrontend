@@ -1,5 +1,4 @@
 // src/components/Store.jsx
-
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -106,7 +105,7 @@ const Store = () => {
       </header>
       <NavBar />
 
-            {/* Carousel */}
+      {/* Carousel */}
       <section className="container my-4">
         <div id="petCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner rounded shadow">
