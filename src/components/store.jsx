@@ -15,6 +15,7 @@ const Store = () => {
   const [imageFile, setImageFile] = useState(null);
 
   const baseURL = 'https://vitebackend.onrender.com';
+  
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
   const token = localStorage.getItem('token');
 
