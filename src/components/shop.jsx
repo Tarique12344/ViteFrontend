@@ -10,7 +10,7 @@ const Shop = () => {
 
   const fetchPets = async () => {
     try {
-      const response = await fetch('https://vitebackend.onrender.com');
+      const response = await fetch('https://vitebackend.onrender.com/api/pets');
       const data = await response.json();
       setPets(data);
     } catch (error) {
