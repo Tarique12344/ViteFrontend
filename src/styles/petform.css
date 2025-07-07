@@ -1,0 +1,77 @@
+/* Pet Form - Matches PetStore Aesthetic */
+
+.pet-form-wrapper {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fef9f4;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.pet-form-wrapper h2 {
+  text-align: center;
+  color: #5a3e2b;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+}
+
+.pet-form-wrapper label {
+  font-weight: 600;
+  color: #4b2e2e;
+  margin-bottom: 5px;
+}
+
+.pet-form-wrapper input[type="text"],
+.pet-form-wrapper input[type="number"],
+.pet-form-wrapper input[type="url"],
+.pet-form-wrapper textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 2px solid #88c7e4;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+}
+
+.pet-form-wrapper input[type="text"]:focus,
+.pet-form-wrapper input[type="number"]:focus,
+.pet-form-wrapper input[type="url"]:focus,
+.pet-form-wrapper textarea:focus {
+  border-color: #5ca4c4;
+  box-shadow: 0 0 8px rgba(92, 164, 196, 0.3);
+  outline: none;
+}
+
+.pet-form-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffb347;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.pet-form-button:hover {
+  background-color: #f59b23;
+  transform: scale(1.03);
+}
+
+.pet-form-button:active {
+  background-color: #e88d17;
+  transform: scale(1);
+}
+
+.pet-form-error {
+  color: #d9534f;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}

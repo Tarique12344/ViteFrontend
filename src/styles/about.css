@@ -1,0 +1,97 @@
+body {
+  background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+  font-family: 'Segoe UI', sans-serif;
+}
+.pet-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 0;
+  /* background-color: #a0fcff; light peachy tone */
+  border-bottom: 3px dashed #3051e6; /* playful dash */
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.pet-navbar a {
+ text-decoration: none;
+  color: #4b2e2e;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #88c7e4;
+  border-radius: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.pet-navbar a:hover {
+
+  color: #1565c0;
+}
+.blockquote {
+  background-color: white; /* or your preferred color */
+  border-radius: 15px;     /* rounded corners */
+  padding: 1.5rem 2rem;    /* some padding inside */
+  border: 1px solid #ddd;  /* subtle border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* optional subtle shadow */
+  margin: 1rem auto;       /* some margin around */
+  max-width: 600px;        /* optional max width to keep it neat */
+}
+
+
+.blockquote-footer {
+  background-color: transparent;
+  border-top: none;
+  color: #555;
+  font-style: normal;
+  padding-top: 0.25rem;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+
+
+.banner {
+  background: linear-gradient(270deg, #64b5f6, #2196f3, #1976d2, #64b5f6);
+  background-size: 600% 600%;
+  animation: gradientMove 14s ease infinite;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.slide-in-left {
+  opacity: 0;
+  animation: slideLeft 1s ease-out forwards;
+}
+
+.slide-in-right {
+  opacity: 0;
+  animation: slideRight 1s ease-out forwards;
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

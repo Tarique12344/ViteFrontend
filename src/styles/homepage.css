@@ -1,0 +1,339 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+  color: black;
+  overflow-x: hidden;
+}
+
+/* Header Banner */
+header .banner {
+  background: linear-gradient(
+    270deg,
+    #007cf0,
+    #00dfd8,
+    #6499ff,
+    #7f7fd5,
+    #86fde8,
+    #007cf0
+  );
+  background-size: 600% 600%;
+  animation: gradientMove 14s ease infinite;
+
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #ccc;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
+.pet-navbar {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  border-bottom: 3px dashed #3051e6;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links a,
+.nav-links span,
+.dropbtn {
+  text-decoration: none;
+  color: #4b2e2e;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #88c7e4;
+  border-radius: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links span:hover,
+.dropbtn:hover {
+  transform: scale(1.1);
+  background-color: #5ca4c4;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #4b2e2e;
+  background-color: transparent !important; /* ✅ remove pill background */
+  border-radius: 0 !important; /* ✅ remove pill shape */
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  text-align: left;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0 !important; /* ✅ subtle hover */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Carousel */
+.carousel {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  height: 320px;
+}
+
+.carousel-item {
+  height: 320px;
+}
+
+.carousel-item img {
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none !important;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  font-size: 30px;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Featured Animals */
+.feature-animals {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  padding: 0 1rem;
+}
+
+/* --- Rounded card with shadow --- */
+.card {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fef9f4;
+}
+
+.card-img-top {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+
+.animal-card {
+  text-align: center;
+  width: 250px;
+}
+
+.animal-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #5a3e2b;
+}
+
+.animal-button {
+  background-color: #ffb347;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Button hover */
+.btn-warning {
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.btn-warning:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  margin-top: 105px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Mobile nav toggle styling */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  background-color: #88c7e4;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  user-select: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .pet-navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .pet-navbar.nav-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links a,
+  .dropbtn {
+    width: 80%;
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    min-width: 80%;
+    border-radius: 0;
+  }
+
+  .dropdown-content a {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+}
+
+
+
+/* Override Bootstrap card */
+.card {
+  border-radius: 1rem; /* round corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  background-color: #fefcfb; /* warm neutral background */
+  border: none; /* remove Bootstrap border */
+  transition: transform 0.2s ease;
+}
+
+/* .card:hover {
+  transform: scale(1.02);
+} */
+
+/* Image inside card */
+.card-img-top {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  object-fit: cover;
+  height: 250px;
+}
+
+/* Card body text centering and spacing */
+.card-body {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Card title customization */
+.card-title {
+  font-weight: 700;
+  color: #5a3e2b;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Card button styling */
+.card .btn {
+  background-color: #ffb347;
+  color: black;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.card .btn:hover {
+  background-color: #ffa42d;
+  transform: scale(1.05);
+}
