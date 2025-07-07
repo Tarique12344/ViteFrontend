@@ -105,6 +105,35 @@ const Store = () => {
       </header>
       <NavBar />
 
+            {/* Carousel */}
+      <section className="container my-4">
+        <div id="petCarousel" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-inner rounded shadow">
+            <div className="carousel-item active">
+              <img src="/Images/joe-caione-qO-PIF84Vxg-unsplash.jpg" className="d-block w-100" alt="Pet 1" />
+            </div>
+            <div className="carousel-item">
+              <img src="https://place-puppy.com/801x400" className="d-block w-100" alt="Pet 2" />
+            </div>
+            <div className="carousel-item">
+              <img src="https://place-puppy.com/802x400" className="d-block w-100" alt="Pet 3" />
+            </div>
+            <div className="carousel-item">
+              <img src="https://place-puppy.com/803x400" className="d-block w-100" alt="Pet 4" />
+            </div>
+          </div>
+
+          <button className="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
+            <span className="carousel-control-next-icon"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
       <section className="container my-5">
         {isAdmin && (
           <div className="mb-4">
