@@ -39,7 +39,7 @@ const NavBar = () => {
             <button className="dropbtn">👑 Admin ▾</button>
             <div className="dropdown-content">
               <Link to="/add-pet">➕ Add Pet</Link>
-              <Link to="/admin/adoptions">📦 Manage Adoptions</Link>
+              <Link to="/">📦 Manage Adoptions</Link>
               <Link to="/admin/requests">📝 View Requests</Link>
             </div>
           </div>
