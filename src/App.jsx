@@ -8,7 +8,7 @@ import Shop from './components/shop';
 import PetForm from './components/PetForm';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Contact from './components/contact';
+import Contact from './components/Contact';
 import EmployeeLogin from './components/Employeelogin';
 
 function App() {
