@@ -39,7 +39,7 @@ const Store = () => {
         <div id="petCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner rounded shadow">
             <div className="carousel-item active">
-              <img src="/Images/lloyd-dirks-R1oSj2m-7Ks-unsplash.jpg" className="d-block w-100" alt="Pet 1" />
+              <img src="/Images/raquel-pedrotti-AHgpNYkX9dc-unsplash.jpg" className="d-block w-100" alt="Pet 1" />
             </div>
             <div className="carousel-item">
               <img src="https://place-puppy.com/801x400" className="d-block w-100" alt="Pet 2" />
