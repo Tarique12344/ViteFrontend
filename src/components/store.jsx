@@ -37,18 +37,38 @@ const Store = () => {
       {/* Carousel */}
       <section className="container my-4">
         <div id="petCarousel" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner rounded shadow">
+          <div className="carousel-inner rounded shadow overflow-hidden" style={{ maxHeight: '300px' }}>
             <div className="carousel-item active">
-              <img src="/Images/joe-caione-qO-PIF84Vxg-unsplash.jpg" className="d-block w-100" alt="Pet 1" />
+              <img
+                src="/Images/joe-caione-qO-PIF84Vxg-unsplash.jpg"
+                className="d-block w-100 img-fluid"
+                alt="Pet 1"
+                style={{ objectFit: 'cover', width: '100%', height: '300px', objectPosition: 'center' }}
+              />
             </div>
             <div className="carousel-item">
-              <img src="https://place-puppy.com/801x400" className="d-block w-100" alt="Pet 2" />
+              <img
+                src="https://place-puppy.com/801x400"
+                className="d-block w-100 img-fluid"
+                alt="Pet 2"
+                style={{ objectFit: 'cover', width: '100%', height: '300px', objectPosition: 'center' }}
+              />
             </div>
             <div className="carousel-item">
-              <img src="https://place-puppy.com/802x400" className="d-block w-100" alt="Pet 3" />
+              <img
+                src="https://place-puppy.com/802x400"
+                className="d-block w-100 img-fluid"
+                alt="Pet 3"
+                style={{ objectFit: 'cover', width: '100%', height: '300px', objectPosition: 'center' }}
+              />
             </div>
             <div className="carousel-item">
-              <img src="https://place-puppy.com/803x400" className="d-block w-100" alt="Pet 4" />
+              <img
+                src="https://place-puppy.com/803x400"
+                className="d-block w-100 img-fluid"
+                alt="Pet 4"
+                style={{ objectFit: 'cover', width: '100%', height: '300px', objectPosition: 'center' }}
+              />
             </div>
           </div>
 
@@ -77,7 +97,7 @@ const Store = () => {
                     src={item.image || 'https://via.placeholder.com/400x300'}
                     className="card-img-top"
                     alt={item.name}
-                    style={{ objectFit: 'cover', height: '250px' }}
+                    style={{ objectFit: 'cover', height: '250px', width: '100%' }}
                   />
                   <div className="card-body text-center">
                     <h5 className="card-title">{item.name}</h5>

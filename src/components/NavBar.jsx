@@ -39,7 +39,6 @@ const NavBar = () => {
             <div className="dropdown-content">
               <Link to="/add-pet">➕ Add Pet</Link>
               <Link to="/storeform">📦 Add Store Item</Link> {/* ✅ Corrected for admin form */}
-              <Link to="/admin/requests">📝 View Requests</Link>
             </div>
           </div>
         )}
