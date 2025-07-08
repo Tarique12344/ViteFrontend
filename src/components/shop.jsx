@@ -47,7 +47,7 @@ const Shop = () => {
               <img src="/Images/joe-caione-qO-PIF84Vxg-unsplash.jpg" className="d-block w-100" alt="Pet 1" />
             </div>
             <div className="carousel-item">
-              <img src="https://place-puppy.com/801x400" className="d-block w-100" alt="Pet 2" />
+              <img src="/Images/jamie-street-VETPuVqsqnQ-unsplash.jpg" className="d-block w-100" alt="Pet 2" />
             </div>
             <div className="carousel-item">
               <img src="https://place-puppy.com/802x400" className="d-block w-100" alt="Pet 3" />

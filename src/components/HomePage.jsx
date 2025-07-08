@@ -40,7 +40,7 @@ const HomePage = () => {
       </section>
 
       <section className="container my-5">
-        <h2 className="text-center mb-4">🐾 Featured Animals 🐾</h2>
+        <h2 className="text-center mb-4">🐾 Spotlight Animals 🐾</h2>
         <div className="row justify-content-center g-4">
           <div className="col-md-4 col-sm-6">
             <div className="card h-100 shadow">
