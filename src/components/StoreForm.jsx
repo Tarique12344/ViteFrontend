@@ -46,25 +46,26 @@ const StoreForm = () => {
       });
 
       if (res.ok) {
-        alert('Item added successfully!');
-        navigate('/store');
+        console.log('✅ Item added successfully');
+        navigate('/store'); // ✅ Redirect to store page on success
       } else {
-        alert('Error adding item');
+        console.error('❌ Failed to add item');
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Error adding item');
+      console.error('❌ Error adding item:', error);
     }
   };
 
   return (
     <div>
-      <NavBar />
       <header>
         <div className="banner">Add Store Item 🛍️</div>
       </header>
-      <div className="container my-5">
-        <form onSubmit={handleSubmit} className="card p-4 shadow mx-auto" style={{ maxWidth: '500px' }}>
+      <NavBar />
+
+      <section className="container my-5">
+        <h3>Add New Store Item</h3>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Item Name"
@@ -97,7 +98,8 @@ const StoreForm = () => {
             Add Item
           </button>
         </form>
-      </div>
+      </section>
+
       <Footer />
     </div>
   );

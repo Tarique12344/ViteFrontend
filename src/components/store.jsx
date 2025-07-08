@@ -10,8 +10,6 @@ const Store = () => {
   const [loading, setLoading] = useState(true);
 
   const baseURL = 'https://vitebackend.onrender.com';
-  const isAdmin = localStorage.getItem('isAdmin') === 'true';
-  const token = localStorage.getItem('token');
 
   const fetchItems = async () => {
     try {
@@ -28,25 +26,6 @@ const Store = () => {
   useEffect(() => {
     fetchItems();
   }, []);
-
-  const handleDeleteItem = async (id) => {
-    try {
-      const res = await fetch(`${baseURL}/api/store/${id}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (res.ok) {
-        setItems((prev) => prev.filter((item) => item._id !== id));
-      } else {
-        console.error('Error deleting item');
-      }
-    } catch (error) {
-      console.error('Error deleting item:', error);
-    }
-  };
 
   return (
     <div>
@@ -110,14 +89,6 @@ const Store = () => {
                   </div>
                   <div className="card-footer text-center">
                     <button className="btn btn-warning">Add to Cart 🛒</button>
-                    {isAdmin && (
-                      <button
-                        className="btn btn-danger mt-2"
-                        onClick={() => handleDeleteItem(item._id)}
-                      >
-                        Delete ❌
-                      </button>
-                    )}
                   </div>
                 </div>
               </div>
