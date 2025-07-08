@@ -50,10 +50,10 @@ const Shop = () => {
               <img src="/Images/jamie-street-VETPuVqsqnQ-unsplash.jpg" className="d-block w-100" alt="Pet 2" />
             </div>
             <div className="carousel-item">
-              <img src="https://place-puppy.com/802x400" className="d-block w-100" alt="Pet 3" />
+              <img src="/Images/richCat.jpg" className="d-block w-100" alt="Pet 3" />
             </div>
             <div className="carousel-item">
-              <img src="https://place-puppy.com/803x400" className="d-block w-100" alt="Pet 4" />
+              <img src="/Images/odiE.jpg" className="d-block w-100" alt="Pet 4" />
             </div>
           </div>
 
