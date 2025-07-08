@@ -35,7 +35,7 @@ const Shop = () => {
   return (
     <div>
       <header>
-        <div className="banner">Simple Pets</div>
+        <div className="banner">Simple Pets Adoption 🐾</div>
       </header>
       <NavBar />
 
