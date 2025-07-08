@@ -40,7 +40,7 @@ const Store = () => {
           <div className="carousel-inner rounded shadow overflow-hidden" style={{ maxHeight: '300px' }}>
             <div className="carousel-item active">
               <img
-                src="/Images/joe-caione-qO-PIF84Vxg-unsplash.jpg"
+                src="/Images/lloyd-dirks-R1oSj2m-7Ks-unsplash.jpg"
                 className="d-block w-100 img-fluid"
                 alt="Pet 1"
                 style={{ objectFit: 'cover', width: '100%', height: '300px', objectPosition: 'center' }}
