@@ -1,4 +1,5 @@
 // src/components/Store.jsx
+
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -8,13 +9,7 @@ const Store = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [imageFile, setImageFile] = useState(null);
-
   const baseURL = 'https://vitebackend.onrender.com';
-  
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
   const token = localStorage.getItem('token');
 
@@ -33,51 +28,6 @@ const Store = () => {
   useEffect(() => {
     fetchItems();
   }, []);
-
-  const handleAddItem = async (e) => {
-    e.preventDefault();
-
-    let imageBase64 = '';
-    if (imageFile) {
-      imageBase64 = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
-        reader.onerror = () => reject('Error reading image file');
-        reader.readAsDataURL(imageFile);
-      });
-    }
-
-    const newItem = {
-      name,
-      description,
-      price: Number(price),
-      image: imageBase64,
-    };
-
-    try {
-      const res = await fetch(`${baseURL}/api/store`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(newItem),
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        setItems((prev) => [data, ...prev]);
-        setName('');
-        setDescription('');
-        setPrice('');
-        setImageFile(null);
-      } else {
-        console.error('Error adding item');
-      }
-    } catch (error) {
-      console.error('Error adding item:', error);
-    }
-  };
 
   const handleDeleteItem = async (id) => {
     try {
@@ -135,45 +85,6 @@ const Store = () => {
       </section>
 
       <section className="container my-5">
-        {isAdmin && (
-          <div className="mb-4">
-            <h3>Add Store Item 🛒</h3>
-            <form onSubmit={handleAddItem}>
-              <input
-                type="text"
-                placeholder="Item Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="form-control my-2"
-                required
-              />
-              <textarea
-                placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                className="form-control my-2"
-              />
-              <input
-                type="number"
-                placeholder="Price"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                className="form-control my-2"
-                required
-              />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImageFile(e.target.files[0])}
-                className="form-control my-2"
-              />
-              <button type="submit" className="btn btn-primary w-100">
-                Add Item
-              </button>
-            </form>
-          </div>
-        )}
-
         {loading ? (
           <p className="text-center">Loading store items...</p>
         ) : items.length === 0 ? (

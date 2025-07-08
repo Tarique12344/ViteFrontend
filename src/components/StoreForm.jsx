@@ -1,28 +1,39 @@
-import React, { useState } from 'react';
+// src/components/StoreForm.jsx
 
-const StoreForm = ({ onAdd }) => {
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
+import Footer from './Footer';
+
+const StoreForm = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [imageFile, setImageFile] = useState(null);
 
+  const navigate = useNavigate();
   const baseURL = 'https://vitebackend.onrender.com';
+  const token = localStorage.getItem('token');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
 
     let imageBase64 = '';
     if (imageFile) {
       imageBase64 = await new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onloadend = () => resolve(reader.result);
-        reader.onerror = reject;
+        reader.onerror = () => reject('Error reading image file');
         reader.readAsDataURL(imageFile);
       });
     }
 
-    const newItem = { name, description, price: Number(price), image: imageBase64 };
+    const newItem = {
+      name,
+      description,
+      price: Number(price),
+      image: imageBase64,
+    };
 
     try {
       const res = await fetch(`${baseURL}/api/store`, {
@@ -35,52 +46,60 @@ const StoreForm = ({ onAdd }) => {
       });
 
       if (res.ok) {
-        const data = await res.json();
-        onAdd(data); // Add the new item to your displayed list
-        setName('');
-        setDescription('');
-        setPrice('');
-        setImageFile(null);
+        alert('Item added successfully!');
+        navigate('/store');
       } else {
-        console.error('Failed to add item');
+        alert('Error adding item');
       }
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error adding item');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
-      <input
-        type="text"
-        placeholder="Item Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-        className="form-control my-2"
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="form-control my-2"
-      />
-      <input
-        type="number"
-        placeholder="Price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        className="form-control my-2"
-      />
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => setImageFile(e.target.files[0])}
-        className="form-control my-2"
-      />
-      <button type="submit" className="btn btn-primary w-100">Add Item</button>
-    </form>
+    <div>
+      <NavBar />
+      <header>
+        <div className="banner">Add Store Item 🛍️</div>
+      </header>
+      <div className="container my-5">
+        <form onSubmit={handleSubmit} className="card p-4 shadow mx-auto" style={{ maxWidth: '500px' }}>
+          <input
+            type="text"
+            placeholder="Item Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="form-control my-2"
+            required
+          />
+          <textarea
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="form-control my-2"
+          />
+          <input
+            type="number"
+            placeholder="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className="form-control my-2"
+            required
+          />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setImageFile(e.target.files[0])}
+            className="form-control my-2"
+          />
+          <button type="submit" className="btn btn-primary w-100">
+            Add Item
+          </button>
+        </form>
+      </div>
+      <Footer />
+    </div>
   );
 };
 

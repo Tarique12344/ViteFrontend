@@ -22,9 +22,7 @@ const NavBar = () => {
     navigate('/login');
   };
 
-  if (isLoggedIn === null) {
-    return null;
-  }
+  if (isLoggedIn === null) return null;
 
   return (
     <nav className="pet-navbar">
@@ -32,7 +30,7 @@ const NavBar = () => {
         <Link to="/">🏠 Home</Link>
         <Link to="/about">🐶 About</Link>
         <Link to="/shop">🛒 Adoption</Link>
-        <Link to="/store">🛍️ Store</Link> {/* ✅ Added Store Link */}
+        <Link to="/store">🛍️ Store</Link>
         <Link to="/contact">📞 Contact</Link>
 
         {isLoggedIn && isAdmin && (
@@ -40,14 +38,14 @@ const NavBar = () => {
             <button className="dropbtn">👑 Admin ▾</button>
             <div className="dropdown-content">
               <Link to="/add-pet">➕ Add Pet</Link>
-              <Link to="/store">📦 Manage Store</Link> {/* ✅ Admin Store Management */}
+              <Link to="/storeform">📦 Add Store Item</Link> {/* ✅ Corrected for admin form */}
               <Link to="/admin/requests">📝 View Requests</Link>
             </div>
           </div>
         )}
 
         {isLoggedIn ? (
-          <span onClick={handleLogout} style={{ cursor: 'pointer' }}>
+          <span onClick={handleLogout} style={{ cursor: 'pointer', color: '#4b2e2e', background: '#88c7e4', padding: '10px 20px', borderRadius: '20px' }}>
             🚪 Logout {isAdmin && '👑'}
           </span>
         ) : (
