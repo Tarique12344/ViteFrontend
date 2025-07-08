@@ -122,47 +122,7 @@ header .banner {
   display: block;
 }
 
-/* Carousel */
-.carousel {
-  width: 100%;
-  max-width: 1000px;
-  margin: 40px auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
 
-.carousel-inner {
-  height: 320px;
-}
-
-.carousel-item {
-  height: 320px;
-}
-
-.carousel-item img {
-  height: 320px;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-image: none !important;
-  width: 30px;
-  height: 30px;
-  position: relative;
-}
-
-.carousel-control-prev-icon::after,
-.carousel-control-next-icon::after {
-  font-size: 30px;
-  color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 /* Featured Animals */
 .feature-animals {
