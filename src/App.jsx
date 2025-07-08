@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import HomePage from './components/HomePage';
-import About from './components/About';
+import About from './components/about';
 import Shop from './components/shop';
 import Store from './components/store';
 import StoreForm from './components/StoreForm';
