@@ -4,8 +4,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import HomePage from './components/HomePage';
-import About from './components/About';
-import Shop from './components/Shop';
+import About from './components/about';
+import Shop from './components/shop';
 import Store from './components/store';
 import StoreForm from './components/StoreForm'; // ✅ NEW: import StoreForm
 import PetForm from './components/PetForm';
