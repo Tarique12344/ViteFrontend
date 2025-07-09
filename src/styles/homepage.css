@@ -177,6 +177,7 @@ header .banner {
 }
 
 /* Carousel */
+/* Carousel */
 .carousel {
   position: relative;
   width: 100%;
@@ -185,23 +186,21 @@ header .banner {
   overflow: hidden;
   background: transparent;
   border-radius: 10px;
-  padding: 0;
+  padding: 0; /* consistent with your spacing */
 }
 
 .carousel-inner {
-  height: 320px;
   overflow: hidden;
-}
-
-.carousel-item {
-  height: 320px;
+  border-radius: 10px;
 }
 
 .carousel-item img {
-  height: 320px;
   width: 100%;
+  height: auto; /* maintain natural aspect ratio */
+  max-height: 500px; /* optional limit for consistent visual height */
   object-fit: cover;
   object-position: center;
+  border-radius: 10px; /* keep your rounded aesthetic */
 }
 
 .carousel-control-prev-icon,
@@ -220,6 +219,7 @@ header .banner {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 
 /* Footer */
 footer {
