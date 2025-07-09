@@ -303,7 +303,7 @@ footer {
 /* UPDATED: Removed outer white background */
 /* Carousel Container */
 .carousel {
-  max-width: 900px;
+  max-width: 950px;
   margin: 40px auto;
   border-radius: 12px;
   overflow: hidden;
@@ -316,7 +316,7 @@ footer {
 
 .carousel-item img {
   width: 100%;
-  height: 300px; /* match the inner max-height */
+  height: 400px; /* match the inner max-height */
   object-fit: cover; /* maintain aspect ratio, crop excess */
   object-position: center;
   display: block;
