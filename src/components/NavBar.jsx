@@ -31,6 +31,7 @@ const NavBar = () => {
         <Link to="/about">🐶 About</Link>
         <Link to="/shop">🛒 Adoption</Link>
         <Link to="/store">🛍️ Store</Link>
+        <Link to="/cart">🛒 Cart</Link> {/* ✅ Added Cart Page Link */}
         <Link to="/contact">📞 Contact</Link>
 
         {isLoggedIn && isAdmin && (
@@ -38,13 +39,22 @@ const NavBar = () => {
             <button className="dropbtn">👑 Admin ▾</button>
             <div className="dropdown-content">
               <Link to="/add-pet">➕ Add Pet</Link>
-              <Link to="/storeform">📦 Add Store Item</Link> {/* ✅ Corrected for admin form */}
+              <Link to="/storeform">📦 Add Store Item</Link>
             </div>
           </div>
         )}
 
         {isLoggedIn ? (
-          <span onClick={handleLogout} style={{ cursor: 'pointer', color: '#4b2e2e', background: '#88c7e4', padding: '10px 20px', borderRadius: '20px' }}>
+          <span
+            onClick={handleLogout}
+            style={{
+              cursor: 'pointer',
+              color: '#4b2e2e',
+              background: '#88c7e4',
+              padding: '10px 20px',
+              borderRadius: '20px'
+            }}
+          >
             🚪 Logout {isAdmin && '👑'}
           </span>
         ) : (
