@@ -55,7 +55,7 @@ const Store = () => {
               <img src="/Images/raquel-pedrotti-AHgpNYkX9dc-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 1" />
             </div>
             <div className="carousel-item">
-              <img src="/Images/DoggieWHuman.jpg" className="d-block w-100 object-fit-cover" alt="Pet 2" />
+              <img src="/Images/kabo-BHJs5TZ-Nt0-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 2" />
             </div>
             <div className="carousel-item">
               <img src="/Images/jamie-street-VETPuVqsqnQ-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 3" />
