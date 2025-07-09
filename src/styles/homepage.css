@@ -313,7 +313,6 @@ footer {
 }
 
 .carousel-inner {
-  max-height: 350px; /* ✅ new constraint for carousel height */
   overflow: hidden;
   border-radius: 10px;
 }
