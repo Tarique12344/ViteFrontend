@@ -8,7 +8,7 @@ import '../styles/homepage.css';
 const Store = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [addedItem, setAddedItem] = useState(null); // for modal
+  const [selectedItem, setSelectedItem] = useState(null); // for modal
 
   const baseURL = 'https://vitebackend.onrender.com';
 
@@ -29,17 +29,14 @@ const Store = () => {
   }, []);
 
   const handleAddToCart = (item) => {
-    // Retrieve current cart from localStorage
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-    currentCart.push(item);
-    localStorage.setItem('cart', JSON.stringify(currentCart));
-
-    // Show modal notification
-    setAddedItem(item);
+    const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+    existingCart.push(item);
+    localStorage.setItem('cart', JSON.stringify(existingCart));
+    setSelectedItem(item); // open modal
   };
 
   const closeModal = () => {
-    setAddedItem(null);
+    setSelectedItem(null);
   };
 
   return (
@@ -66,7 +63,6 @@ const Store = () => {
               <img src="https://place-puppy.com/803x400" className="d-block w-100" alt="Pet 4" />
             </div>
           </div>
-
           <button className="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
             <span className="carousel-control-prev-icon"></span>
             <span className="visually-hidden">Previous</span>
@@ -108,7 +104,7 @@ const Store = () => {
                       className="btn btn-warning"
                       onClick={() => handleAddToCart(item)}
                     >
-                      Add to Cart 🛒
+                      Add to place order 🛒
                     </button>
                   </div>
                 </div>
@@ -121,7 +117,7 @@ const Store = () => {
       <Footer />
 
       {/* Add to Cart Modal */}
-      {addedItem && (
+      {selectedItem && (
         <div
           className="modal fade show"
           style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
@@ -131,11 +127,11 @@ const Store = () => {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">🛒 Item Added to Cart</h5>
+                <h5 className="modal-title">🛒 Item Added</h5>
                 <button type="button" className="btn-close" onClick={closeModal}></button>
               </div>
               <div className="modal-body text-center">
-                <p><strong>{addedItem.name}</strong> has been added to your cart.</p>
+                <p>✅ <strong>{selectedItem.name}</strong> has been added to your order!</p>
               </div>
               <div className="modal-footer justify-content-center">
                 <button type="button" className="btn btn-secondary" onClick={closeModal}>
