@@ -60,9 +60,6 @@ const Store = () => {
             <div className="carousel-item">
               <img src="/Images/jamie-street-VETPuVqsqnQ-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 3" />
             </div>
-            <div className="carousel-item">
-              <img src="/Images/jack-catalano-6aY_0S-epZQ-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 4" />
-            </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
             <span className="carousel-control-prev-icon"></span>
