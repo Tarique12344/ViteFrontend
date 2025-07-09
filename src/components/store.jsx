@@ -55,13 +55,13 @@ const Store = () => {
               <img src="/Images/raquel-pedrotti-AHgpNYkX9dc-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 1" />
             </div>
             <div className="carousel-item">
-              <img src="/Images/weinerDog.jpg" className="d-block w-100 object-fit-cover" alt="Pet 2" />
+              <img src="/Images/newDog.jpg" className="d-block w-100 object-fit-cover" alt="Pet 2" />
             </div>
             <div className="carousel-item">
               <img src="/Images/jamie-street-VETPuVqsqnQ-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 3" />
             </div>
             <div className="carousel-item">
-              <img src="/Images/small-dog.png.png" className="d-block w-100 object-fit-cover" alt="Pet 4" />
+              <img src="/Images/mrWhiskers.jpg" className="d-block w-100 object-fit-cover" alt="Pet 4" />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
