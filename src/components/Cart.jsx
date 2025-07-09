@@ -34,13 +34,17 @@ const Cart = () => {
   const totalPrice = cartItems.reduce((sum, item) => sum + (item.price || 0), 0);
 
   return (
-    <div>
+    <div className="page-wrapper">
+      {/* Banner */}
       <header>
         <div className="banner">Your Cart 🛒</div>
       </header>
+
+      {/* Navbar */}
       <NavBar />
 
-      <section className="container my-5">
+      {/* Main Content */}
+      <main className="container my-5 flex-grow-1">
         {cartItems.length === 0 ? (
           <p className="text-center">Your cart is empty.</p>
         ) : (
@@ -87,8 +91,9 @@ const Cart = () => {
             </div>
           </>
         )}
-      </section>
+      </main>
 
+      {/* Footer */}
       <Footer />
     </div>
   );

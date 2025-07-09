@@ -376,3 +376,14 @@ footer {
   padding: 2px 6px;
   font-size: 12px;
 }
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-wrapper main {
+  flex-grow: 1;
+}
