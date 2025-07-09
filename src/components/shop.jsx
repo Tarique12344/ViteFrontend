@@ -40,34 +40,29 @@ const Shop = () => {
       <NavBar />
 
 
-      {/* Carousel */}
-      <section className="container my-4">
-        <div id="storeCarousel" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner rounded shadow overflow-hidden" style={{ maxHeight: '400px' }}>
+  <section className="my-5 container-fluid px-0">
+        <div id="petCarousel" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-inner rounded shadow">
             <div className="carousel-item active">
-              <img src="/Images/raquel-pedrotti-AHgpNYkX9dc-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 1" />
+              <img src="/Images/maurice.jpg" alt="Cute Cats" className="d-block w-100" />
             </div>
             <div className="carousel-item">
-              <img src="/Images/BeachDog.jpg" className="d-block w-100 object-fit-cover" alt="Pet 2" />
+              <img src="/Images/Rabbit2.jpg" alt="Rabbit" className="d-block w-100" />
             </div>
             <div className="carousel-item">
-              <img src="/Images/jamie-street-VETPuVqsqnQ-unsplash.jpg" className="d-block w-100 object-fit-cover" alt="Pet 3" />
-            </div>
-            <div className="carousel-item">
-              <img src="/Images/maurice.jpg" className="d-block w-100 object-fit-cover" alt="Pet 4" />
+              <img src="/Images/chewyDogs.jpg" alt="Gerbil" className="d-block w-100" />
             </div>
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon"></span>
+          <button className="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true" />
             <span className="visually-hidden">Previous</span>
           </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#storeCarousel" data-bs-slide="next">
-            <span className="carousel-control-next-icon"></span>
+          <button className="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true" />
             <span className="visually-hidden">Next</span>
           </button>
         </div>
       </section>
-
 
       {/* Pet Cards */}
       <section className="container my-5">

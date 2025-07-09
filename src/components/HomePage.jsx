@@ -15,29 +15,7 @@ const HomePage = () => {
 
       <NavBar />
 
-      <section className="my-5 container-fluid px-0">
-        <div id="petCarousel" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner rounded shadow">
-            <div className="carousel-item active">
-              <img src="/Images/basketKitties.jpg" alt="Cute Cats" className="d-block w-100" />
-            </div>
-            <div className="carousel-item">
-              <img src="/Images/Rabbit2.jpg" alt="Rabbit" className="d-block w-100" />
-            </div>
-            <div className="carousel-item">
-              <img src="/Images/chewyDogs.jpg" alt="Gerbil" className="d-block w-100" />
-            </div>
-          </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true" />
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true" />
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
+    c
 
       <section className="container my-5">
         <h2 className="text-center mb-4">🐾 Spotlight Animals 🐾</h2>
