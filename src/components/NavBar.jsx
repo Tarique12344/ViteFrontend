@@ -8,12 +8,25 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     const adminFlag = localStorage.getItem('isAdmin') === 'true';
     setIsLoggedIn(!!token);
     setIsAdmin(adminFlag);
+
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      setCartCount(cart.length);
+    };
+
+    updateCartCount();
+    window.addEventListener('storage', updateCartCount);
+
+    return () => {
+      window.removeEventListener('storage', updateCartCount);
+    };
   }, []);
 
   const handleLogout = () => {
@@ -33,18 +46,35 @@ const NavBar = () => {
         <Link to="/store">🛍️ Store</Link>
         <Link to="/contact">📞 Contact</Link>
 
+        {/* Cart Icon with count */}
+        <Link to="/cart" className="cart-icon">
+          🛒 Cart
+          {cartCount > 0 && (
+            <span className="cart-count-badge">{cartCount}</span>
+          )}
+        </Link>
+
         {isLoggedIn && isAdmin && (
           <div className="dropdown">
             <button className="dropbtn">👑 Admin ▾</button>
             <div className="dropdown-content">
               <Link to="/add-pet">➕ Add Pet</Link>
-              <Link to="/storeform">📦 Add Store Item</Link> {/* ✅ Corrected for admin form */}
+              <Link to="/storeform">📦 Add Store Item</Link>
             </div>
           </div>
         )}
 
         {isLoggedIn ? (
-          <span onClick={handleLogout} style={{ cursor: 'pointer', color: '#4b2e2e', background: '#88c7e4', padding: '10px 20px', borderRadius: '20px' }}>
+          <span
+            onClick={handleLogout}
+            style={{
+              cursor: 'pointer',
+              color: '#4b2e2e',
+              background: '#88c7e4',
+              padding: '10px 20px',
+              borderRadius: '20px',
+            }}
+          >
             🚪 Logout {isAdmin && '👑'}
           </span>
         ) : (
