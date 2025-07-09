@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/homepage.css';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import WeatherCard from './WeatherCard';
 import { Link } from 'react-router-dom'; // ✅ added
 
 const HomePage = () => {
@@ -37,6 +38,8 @@ const HomePage = () => {
           </button>
         </div>
       </section>
+
+      <WeatherCard city="Toledo" />
 
       <section className="container my-5">
         <h2 className="text-center mb-4">🐾 Spotlight Animals 🐾</h2>
