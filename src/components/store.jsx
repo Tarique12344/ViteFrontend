@@ -27,6 +27,18 @@ const Store = () => {
     fetchItems();
   }, []);
 
+  const handleAddToCart = (item) => {
+    // Get existing cart or start a new one
+    const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Add new item
+    existingCart.push(item);
+    // Save back to localStorage
+    localStorage.setItem('cart', JSON.stringify(existingCart));
+    // Notify user
+    alert(`${item.name} added to cart!`);
+    // Optionally, you can force NavBar to update by reloading page or using state
+  };
+
   return (
     <div>
       <header>
@@ -88,7 +100,12 @@ const Store = () => {
                     </p>
                   </div>
                   <div className="card-footer text-center">
-                    <button className="btn btn-warning">Add to Cart 🛒</button>
+                    <button
+                      className="btn btn-warning"
+                      onClick={() => handleAddToCart(item)}
+                    >
+                      Add to Cart 🛒
+                    </button>
                   </div>
                 </div>
               </div>
