@@ -25,6 +25,7 @@ header .banner {
   );
   background-size: 600% 600%;
   animation: gradientMove 14s ease infinite;
+
   text-align: center;
   padding: 40px 20px;
   font-size: 28px;
@@ -102,7 +103,8 @@ header .banner {
   padding: 10px 15px;
   text-decoration: none;
   color: #4b2e2e;
-  background: none;
+  background-color: transparent !important; /* ✅ remove pill background */
+  border-radius: 0 !important; /* ✅ remove pill shape */
   border-bottom: 1px solid #ddd;
   font-size: 16px;
   text-align: left;
@@ -113,14 +115,16 @@ header .banner {
 }
 
 .dropdown-content a:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0 !important; /* ✅ subtle hover */
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Featured Animals and Cards */
+
+
+/* Featured Animals */
 .feature-animals {
   display: flex;
   justify-content: center;
@@ -130,16 +134,12 @@ header .banner {
   padding: 0 1rem;
 }
 
+/* --- Rounded card with shadow --- */
 .card {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  background-color: #fefcfb;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: scale(1.02);
+  background-color: #fef9f4;
 }
 
 .card-img-top {
@@ -150,11 +150,132 @@ header .banner {
   width: 100%;
 }
 
+.animal-card {
+  text-align: center;
+  width: 250px;
+}
+
+.animal-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #5a3e2b;
+}
+
+.animal-button {
+  background-color: #ffb347;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Button hover */
+.btn-warning {
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.btn-warning:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  margin-top: 105px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Mobile nav toggle styling */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  background-color: #88c7e4;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  user-select: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .pet-navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .pet-navbar.nav-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links a,
+  .dropbtn {
+    width: 80%;
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    min-width: 80%;
+    border-radius: 0;
+  }
+
+  .dropdown-content a {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+}
+
+
+
+/* Override Bootstrap card */
+.card {
+  border-radius: 1rem; /* round corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  background-color: #fefcfb; /* warm neutral background */
+  border: none; /* remove Bootstrap border */
+  transition: transform 0.2s ease;
+}
+
+/* .card:hover {
+  transform: scale(1.02);
+} */
+
+/* Image inside card */
+.card-img-top {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  object-fit: cover;
+  height: 250px;
+}
+
+/* Card body text centering and spacing */
 .card-body {
   text-align: center;
   padding: 1rem;
 }
 
+/* Card title customization */
 .card-title {
   font-weight: 700;
   color: #5a3e2b;
@@ -162,6 +283,7 @@ header .banner {
   margin-bottom: 0.5rem;
 }
 
+/* Card button styling */
 .card .btn {
   background-color: #ffb347;
   color: black;
@@ -176,8 +298,9 @@ header .banner {
   transform: scale(1.05);
 }
 
-/* Carousel */
-/* Carousel */
+
+/* Carousel container */
+/* UPDATED: Removed outer white background */
 .carousel {
   position: relative;
   width: 100%;
@@ -220,18 +343,6 @@ header .banner {
   transform: translate(-50%, -50%);
 }
 
-
-/* Footer */
-footer {
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-  background-color: #333;
-  color: #fff;
-  margin-top: auto;
-}
-
-/* Cart badge */
 .cart-icon {
   position: relative;
 }
@@ -247,7 +358,7 @@ footer {
   font-size: 12px;
 }
 
-/* Page wrapper for sticky footer if needed */
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -258,56 +369,4 @@ footer {
   flex-grow: 1;
 }
 
-/* Mobile styles */
-.nav-toggle {
-  display: none;
-  cursor: pointer;
-  background-color: #88c7e4;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
-  user-select: none;
-  margin-bottom: 10px;
-  text-align: center;
-}
 
-@media (max-width: 768px) {
-  .pet-navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    align-items: center;
-  }
-
-  .pet-navbar.nav-open .nav-links {
-    display: flex;
-  }
-
-  .nav-links a,
-  .dropbtn {
-    width: 80%;
-    text-align: center;
-  }
-
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    min-width: 80%;
-    border-radius: 0;
-  }
-
-  .dropdown-content a {
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-  }
-}
