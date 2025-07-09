@@ -311,7 +311,7 @@ footer {
 
 /* Carousel Inner and Item */
 .carousel-inner {
-  max-height: 300px; /* adjust as desired */
+  max-height: 500px; /* adjust as desired */
 }
 
 .carousel-item img {
