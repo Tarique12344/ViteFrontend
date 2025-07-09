@@ -8,6 +8,7 @@ import '../styles/homepage.css';
 const Store = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [addedItem, setAddedItem] = useState(null); // for modal
 
   const baseURL = 'https://vitebackend.onrender.com';
 
@@ -28,15 +29,17 @@ const Store = () => {
   }, []);
 
   const handleAddToCart = (item) => {
-    // Get existing cart or start a new one
-    const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-    // Add new item
-    existingCart.push(item);
-    // Save back to localStorage
-    localStorage.setItem('cart', JSON.stringify(existingCart));
-    // Notify user
-    alert(`${item.name} added to cart!`);
-    // Optionally, you can force NavBar to update by reloading page or using state
+    // Retrieve current cart from localStorage
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+    currentCart.push(item);
+    localStorage.setItem('cart', JSON.stringify(currentCart));
+
+    // Show modal notification
+    setAddedItem(item);
+  };
+
+  const closeModal = () => {
+    setAddedItem(null);
   };
 
   return (
@@ -75,6 +78,7 @@ const Store = () => {
         </div>
       </section>
 
+      {/* Store Items */}
       <section className="container my-5">
         {loading ? (
           <p className="text-center">Loading store items...</p>
@@ -115,6 +119,33 @@ const Store = () => {
       </section>
 
       <Footer />
+
+      {/* Add to Cart Modal */}
+      {addedItem && (
+        <div
+          className="modal fade show"
+          style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
+          tabIndex="-1"
+          role="dialog"
+        >
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">🛒 Item Added to Cart</h5>
+                <button type="button" className="btn-close" onClick={closeModal}></button>
+              </div>
+              <div className="modal-body text-center">
+                <p><strong>{addedItem.name}</strong> has been added to your cart.</p>
+              </div>
+              <div className="modal-footer justify-content-center">
+                <button type="button" className="btn btn-secondary" onClick={closeModal}>
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
