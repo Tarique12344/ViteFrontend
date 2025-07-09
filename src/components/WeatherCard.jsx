@@ -9,7 +9,7 @@ const WeatherCard = ({ city = 'Toledo' }) => {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const response = await fetch(`https://your-backend-url/api/weather?city=${city}`);
+        const response = await fetch(`https://vitebackend.onrender.com/api/weather?city=${city}`);
         if (!response.ok) {
           throw new Error('Weather fetch failed');
         }
