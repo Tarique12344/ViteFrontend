@@ -4,38 +4,52 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import '../styles/homepage.css';
 
 const StoreForm = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [imageFile, setImageFile] = useState(null);
+  const [previewURL, setPreviewURL] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const navigate = useNavigate();
   const baseURL = 'https://vitebackend.onrender.com';
   const token = localStorage.getItem('token');
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      setPreviewURL(URL.createObjectURL(file));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    let imageBase64 = '';
-    if (imageFile) {
-      imageBase64 = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
-        reader.onerror = () => reject('Error reading image file');
-        reader.readAsDataURL(imageFile);
-      });
-    }
-
-    const newItem = {
-      name,
-      description,
-      price: Number(price),
-      image: imageBase64,
-    };
+    setLoading(true);
+    setErrorMessage('');
 
     try {
+      let imageBase64 = '';
+      if (imageFile) {
+        imageBase64 = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.onerror = () => reject('Error reading image file');
+          reader.readAsDataURL(imageFile);
+        });
+      }
+
+      const newItem = {
+        name,
+        description,
+        price: parseFloat(price),
+        image: imageBase64,
+      };
+
       const res = await fetch(`${baseURL}/api/store`, {
         method: 'POST',
         headers: {
@@ -47,58 +61,81 @@ const StoreForm = () => {
 
       if (res.ok) {
         console.log('✅ Item added successfully');
-        navigate('/store'); // ✅ Redirect to store page on success
+        navigate('/store');
       } else {
-        console.error('❌ Failed to add item');
+        const errData = await res.json();
+        setErrorMessage(errData.message || 'Failed to add item.');
       }
     } catch (error) {
       console.error('❌ Error adding item:', error);
+      setErrorMessage('Error adding item. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div>
       <header>
-        <div className="banner">Add Store Item 🛍️</div>
+        <div className="banner">Simple Pets Store 🛍️</div>
       </header>
       <NavBar />
 
-      <section className="container my-5">
-        <h3>Add New Store Item</h3>
+      <div className="pet-form-wrapper">
+        <h2>Add Store Item 🛍️</h2>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="itemName">Item Name:</label>
           <input
+            id="itemName"
             type="text"
-            placeholder="Item Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="form-control my-2"
             required
           />
+
+          <label htmlFor="itemDescription">Description:</label>
           <textarea
-            placeholder="Description"
+            id="itemDescription"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="form-control my-2"
-          />
-          <input
-            type="number"
-            placeholder="Price"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className="form-control my-2"
             required
           />
+
+          <label htmlFor="itemPrice">Price ($):</label>
           <input
+            id="itemPrice"
+            type="number"
+            step="0.01"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+
+          <label htmlFor="itemImage">Item Image:</label>
+          <input
+            id="itemImage"
             type="file"
             accept="image/*"
-            onChange={(e) => setImageFile(e.target.files[0])}
-            className="form-control my-2"
+            onChange={handleImageChange}
           />
-          <button type="submit" className="btn btn-primary w-100">
-            Add Item
+
+          {previewURL && (
+            <div style={{ marginTop: '10px', textAlign: 'center' }}>
+              <img
+                src={previewURL}
+                alt="Preview"
+                style={{ maxWidth: '200px', borderRadius: '10px' }}
+              />
+            </div>
+          )}
+
+          <button type="submit" disabled={loading} className="pet-form-button">
+            {loading ? 'Adding...' : 'Add Item'}
           </button>
+
+          {errorMessage && <p className="pet-form-error">{errorMessage}</p>}
         </form>
-      </section>
+      </div>
 
       <Footer />
     </div>
