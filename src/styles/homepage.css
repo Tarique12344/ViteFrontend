@@ -301,29 +301,25 @@ footer {
 
 /* Carousel container */
 /* UPDATED: Removed outer white background */
+/* Carousel Container */
 .carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 40px auto;
+  border-radius: 12px;
   overflow: hidden;
-  background: transparent;
-  border-radius: 10px;
-  padding: 0; /* consistent with your spacing */
 }
 
+/* Carousel Inner and Item */
 .carousel-inner {
-  overflow: hidden;
-  border-radius: 10px;
+  max-height: 300px; /* adjust as desired */
 }
 
 .carousel-item img {
   width: 100%;
-  height: auto; /* maintain natural aspect ratio */
-  max-height: 500px; /* optional limit for consistent visual height */
-  object-fit: cover;
+  height: 300px; /* match the inner max-height */
+  object-fit: cover; /* maintain aspect ratio, crop excess */
   object-position: center;
-  border-radius: 10px; /* keep your rounded aesthetic */
+  display: block;
 }
 
 .carousel-control-prev-icon,
