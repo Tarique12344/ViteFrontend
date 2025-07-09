@@ -24,7 +24,7 @@ const HomePage = () => {
               <img src="/Images/Rabbit2.jpg" alt="Rabbit" className="d-block w-100" />
             </div>
             <div className="carousel-item">
-              <img src="/Images/chewyDogs.jpg" alt="Gerbil" className="d-block w-100" />
+              <img src="/Images/DoggieWHuman.jpg" alt="Gerbil" className="d-block w-100" />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
