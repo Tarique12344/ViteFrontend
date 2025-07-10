@@ -266,6 +266,12 @@ footer {
   }
 }
 
+/* Remove carousel arrows */
+.carousel-control-prev,
+.carousel-control-next {
+  display: none !important;
+}
+
 
 .cart-icon {
   position: relative;
