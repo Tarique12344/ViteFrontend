@@ -7,6 +7,7 @@ import '../styles/homepage.css';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -26,9 +27,13 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    alert('🎉 Thank you for your order! You will receive a confirmation email shortly.');
+    setShowModal(true);
     localStorage.removeItem('cart');
     setCartItems([]);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   const totalPrice = cartItems.reduce((sum, item) => sum + (item.price || 0), 0);
@@ -49,45 +54,53 @@ const Cart = () => {
           <p className="text-center">Your cart is empty.</p>
         ) : (
           <>
-            <div className="row justify-content-center">
-              {cartItems.map((item, index) => (
-                <div className="col-md-6 col-lg-4 mb-4" key={index}>
-                  <div className="card h-100 shadow">
-                    <img
-                      src={item.image || 'https://via.placeholder.com/400x300'}
-                      className="card-img-top"
-                      alt={item.name}
-                      style={{ objectFit: 'cover', height: '250px' }}
-                    />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">{item.name}</h5>
-                      <p className="card-text">
-                        {item.description}
-                        <br />
-                        <strong>Price:</strong> ${item.price}
-                      </p>
-                    </div>
-                    <div className="card-footer text-center">
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => handleRemoveItem(index)}
-                      >
-                        Remove ❌
-                      </button>
+            <div className="cart-container">
+              <div className="row justify-content-center">
+                {cartItems.map((item, index) => (
+                  <div className="col-md-6 col-lg-4 mb-4" key={index}>
+                    <div className="card h-100 shadow">
+                      <img
+                        src={item.image || 'https://via.placeholder.com/400x300'}
+                        className="card-img-top"
+                        alt={item.name}
+                        style={{ objectFit: 'cover', height: '250px' }}
+                      />
+                      <div className="card-body text-center">
+                        <h5 className="card-title">{item.name}</h5>
+                        <p className="card-text">
+                          {item.description}
+                          <br />
+                          <strong>Price:</strong> ${item.price}
+                        </p>
+                      </div>
+                      <div className="card-footer text-center">
+                        <button
+                          className="btn btn-danger rounded-pill"
+                          onClick={() => handleRemoveItem(index)}
+                        >
+                          Remove ❌
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            <div className="text-center mt-4">
-              <h4>Total: ${totalPrice.toFixed(2)}</h4>
-              <button className="btn btn-secondary m-2" onClick={handleClearCart}>
-                Clear Cart 🧹
-              </button>
-              <button className="btn btn-success m-2" onClick={handleCheckout}>
-                Checkout ✅
-              </button>
+              <div className="text-center mt-4">
+                <h4>Total: ${totalPrice.toFixed(2)}</h4>
+                <button
+                  className="btn btn-clear-cart m-2"
+                  onClick={handleClearCart}
+                >
+                  🧹 Clear Cart
+                </button>
+                <button
+                  className="btn btn-checkout m-2"
+                  onClick={handleCheckout}
+                >
+                  🛒 Checkout
+                </button>
+              </div>
             </div>
           </>
         )}
@@ -95,6 +108,30 @@ const Cart = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* Success Modal */}
+      {showModal && (
+        <div
+          className="modal fade show"
+          style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
+          tabIndex="-1"
+          role="dialog"
+        >
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content text-center p-4">
+              <h5 className="modal-title">🎉 Order Successful!</h5>
+              <p>Thank you for your order! Your pets will love their goodies. 🐾</p>
+              <button
+                type="button"
+                className="btn btn-warning rounded-pill mt-3"
+                onClick={closeModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

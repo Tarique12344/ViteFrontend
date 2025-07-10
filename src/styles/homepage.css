@@ -25,7 +25,6 @@ header .banner {
   );
   background-size: 600% 600%;
   animation: gradientMove 14s ease infinite;
-
   text-align: center;
   padding: 40px 20px;
   font-size: 28px;
@@ -103,8 +102,8 @@ header .banner {
   padding: 10px 15px;
   text-decoration: none;
   color: #4b2e2e;
-  background-color: transparent !important; /* ✅ remove pill background */
-  border-radius: 0 !important; /* ✅ remove pill shape */
+  background-color: transparent !important;
+  border-radius: 0 !important;
   border-bottom: 1px solid #ddd;
   font-size: 16px;
   text-align: left;
@@ -115,14 +114,12 @@ header .banner {
 }
 
 .dropdown-content a:hover {
-  background-color: #f0f0f0 !important; /* ✅ subtle hover */
+  background-color: #f0f0f0 !important;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-
 
 /* Featured Animals */
 .feature-animals {
@@ -134,12 +131,14 @@ header .banner {
   padding: 0 1rem;
 }
 
-/* --- Rounded card with shadow --- */
+/* Rounded card with shadow */
 .card {
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  background-color: #fef9f4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fefcfb;
+  border: none;
+  transition: transform 0.2s ease;
 }
 
 .card-img-top {
@@ -150,34 +149,29 @@ header .banner {
   width: 100%;
 }
 
-.animal-card {
+.card-body {
   text-align: center;
-  width: 250px;
+  padding: 1rem;
 }
 
-.animal-title {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+.card-title {
+  font-weight: 700;
   color: #5a3e2b;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
-.animal-button {
+.card .btn {
   background-color: #ffb347;
-  color: white;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
+  color: black;
   border-radius: 20px;
-  display: inline-block;
-  margin-top: 10px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Button hover */
-.btn-warning {
-  font-weight: bold;
-  transition: transform 0.2s;
-}
-
-.btn-warning:hover {
+.card .btn:hover {
+  background-color: #ffa42d;
   transform: scale(1.05);
 }
 
@@ -246,115 +240,45 @@ footer {
   }
 }
 
-
-
-/* Override Bootstrap card */
-.card {
-  border-radius: 1rem; /* round corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
-  background-color: #fefcfb; /* warm neutral background */
-  border: none; /* remove Bootstrap border */
-  transition: transform 0.2s ease;
-}
-
-/* .card:hover {
-  transform: scale(1.02);
-} */
-
-/* Image inside card */
-.card-img-top {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  object-fit: cover;
-  height: 250px;
-}
-
-/* Card body text centering and spacing */
-.card-body {
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Card title customization */
-.card-title {
-  font-weight: 700;
-  color: #5a3e2b;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Card button styling */
-.card .btn {
-  background-color: #ffb347;
-  color: black;
-  border-radius: 20px;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.card .btn:hover {
-  background-color: #ffa42d;
-  transform: scale(1.05);
-}
-
-
-/* Carousel container */
-/* UPDATED: Removed outer white background */
-/* Carousel Container */
+/* Carousel styling */
 .carousel {
   position: relative;
   width: 100%;
   max-width: 1000px;
   margin: 40px auto;
   overflow: hidden;
-  background: transparent; /* removed #f5f5f5 */
+  background: transparent;
   border-radius: 10px;
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
-  padding: 20px 60px; /* keep padding for arrows */
+  padding: 20px 60px;
   box-sizing: border-box;
 }
 
-/* Keep photo section white */
 .carousel-inner {
   height: 320px;
   overflow: hidden;
 }
 
-
 .carousel-item {
-  height: 320px; /* or however tall you want the carousel */
+  height: 320px;
 }
 
 .carousel-item img {
   height: 320px;
-  width:550px;
+  width: 550px;
   object-fit: fill;
-  object-position: center; /* Keep face or subject centered */
+  object-position: center;
 }
 
-
-/* Bootstrap Carousel arrows - black */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-image: none !important; /* remove default */
+  background-image: none !important;
   width: 30px;
   height: 30px;
   position: relative;
 }
 
-.carousel-control-prev-icon::after {
-  /* content: '‹'; */
-  font-size: 30px;
-  color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
+.carousel-control-prev-icon::after,
 .carousel-control-next-icon::after {
-  /* content: '›'; */
   font-size: 30px;
   color: black;
   position: absolute;
@@ -363,6 +287,7 @@ footer {
   transform: translate(-50%, -50%);
 }
 
+/* Cart icon */
 .cart-icon {
   position: relative;
 }
@@ -378,7 +303,7 @@ footer {
   font-size: 12px;
 }
 
-
+/* Layout wrapper */
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -389,4 +314,30 @@ footer {
   flex-grow: 1;
 }
 
+/* Cart container styling */
+.cart-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fefcfb;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
+/* Custom Checkout and Clear Cart buttons */
+.btn-checkout,
+.btn-clear-cart {
+  background-color: #ffb347;
+  color: black;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-checkout:hover,
+.btn-clear-cart:hover {
+  background-color: #ffa42d;
+  transform: scale(1.05);
+}
