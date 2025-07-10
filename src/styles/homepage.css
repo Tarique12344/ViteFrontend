@@ -46,7 +46,7 @@ header .banner {
   display: none;
   cursor: pointer;
   background: #007cf0;
-  color: white;
+  /* color: white; */
   border: none;
   font-size: 18px;
   padding: 10px 16px;
@@ -85,7 +85,7 @@ header .banner {
 .dropbtn {
   text-decoration: none;
   color: #333;
-  background: #ffffffcc;
+  background: #007cf0;
   backdrop-filter: blur(4px);
   padding: 8px 14px;
   border-radius: 10px;
@@ -111,9 +111,15 @@ header .banner {
 }
 
 .dropdown-content a {
-  padding: 10px 12px;
   display: block;
-  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #4b2e2e;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  text-align: left;
 }
 
 .dropdown-content a:hover {
