@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div>
       <header>
-        <div className="banner">Simple Pets</div>
+        <div className="banner">Simple Pets 🐶</div>
       </header>
 
       <NavBar />
