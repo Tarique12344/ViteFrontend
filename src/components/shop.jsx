@@ -47,7 +47,7 @@ const Shop = () => {
               <img src="/Images/maurice.jpg" alt="Cute Cats" className="d-block w-100" />
             </div>
             <div className="carousel-item">
-              <img src="/Images/Rabbit2.jpg" alt="Rabbit" className="d-block w-100" />
+              <img src="/Images/krista-mangulsone-9gz3wfHr65U-unsplash.jpg" alt="Rabbit" className="d-block w-100" />
             </div>
             <div className="carousel-item">
               <img src="/Images/chewyDogs.jpg" alt="Gerbil" className="d-block w-100" />
