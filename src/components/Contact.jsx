@@ -43,7 +43,7 @@ const Contact = () => {
     <div>
       {/* Banner */}
       <header>
-        <div className="banner">Simple Pets</div>
+        <div className="banner">Simple Pets Contact 📞</div>
       </header>
 
       {/* Navbar */}
