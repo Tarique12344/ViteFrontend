@@ -243,24 +243,28 @@ footer {
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
+  transition: height 0.3s ease;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-image: none !important;
-  width: 30px;
-  height: 30px;
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    max-width: 100%; /* full width on mobile */
+    margin: 20px auto;
+  }
+
+  .carousel-item img {
+    max-height: 250px; /* reduce height on mobile */
+  }
 }
 
-.carousel-control-prev-icon::after,
-.carousel-control-next-icon::after {
-  font-size: 30px;
-  color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Extra small devices */
+@media (max-width: 480px) {
+  .carousel-item img {
+    max-height: 180px; /* even smaller for very small screens */
+  }
 }
+
 
 .cart-icon {
   position: relative;
