@@ -40,34 +40,41 @@ header .banner {
   100% { background-position: 0% 50%; }
 }
 
-/* Navbar */
+/* NAVBAR CLEAN MOBILE DESIGN */
+
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  background: #007cf0;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  margin: 10px auto;
+  text-align: center;
+  user-select: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-toggle:hover {
+  background: #005bb5;
+  transform: scale(1.05);
+}
+
 .pet-navbar {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 15px 0;
-  border-bottom: 3px dashed #3051e6;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  padding: 10px;
   position: relative;
-  z-index: 10; /* ensures above other sections */
-}
-
-.nav-toggle {
-  display: none;
-  cursor: pointer;
-  background-color: #88c7e4;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
-  user-select: none;
-  margin-bottom: 10px;
-  text-align: center;
+  z-index: 1000;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -77,82 +84,47 @@ header .banner {
 .nav-links span,
 .dropbtn {
   text-decoration: none;
-  color: #4b2e2e;
-  font-size: 18px;
-  padding: 10px 20px;
-  background-color: #88c7e4;
-  border-radius: 20px;
-  transition: background-color 0.3s, transform 0.2s;
-  cursor: pointer;
+  color: #333;
+  background: #ffffffcc;
+  backdrop-filter: blur(4px);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links span:hover,
 .dropbtn:hover {
-  transform: scale(1.1);
-  background-color: #5ca4c4;
-}
-
-/* Dropdown styling */
-.dropdown {
-  position: relative;
+  background: #e0f0ff;
+  transform: translateY(-2px);
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 110%;
-  right: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 12px;
-  overflow: hidden;
-  z-index: 1000;
+  top: 100%;
+  background: #ffffffee;
+  border-radius: 10px;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .dropdown-content a {
+  padding: 10px 12px;
   display: block;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: #4b2e2e;
-  background: none !important;
-  border-radius: 0 !important;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-  text-align: left;
-}
-
-.dropdown-content a:last-child {
-  border-bottom: none;
+  color: #333;
 }
 
 .dropdown-content a:hover {
-  background-color: #f0f0f0 !important;
+  background: #f0f8ff;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Logout button */
-.logout-btn {
-  background-color: #ffb347;
-  color: black;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.logout-btn:hover {
-  background-color: #ffa42d;
-  transform: scale(1.05);
-}
-
-/* Mobile responsive nav */
+/* Responsive Mobile Nav */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -161,74 +133,18 @@ header .banner {
   .nav-links {
     display: none;
     flex-direction: column;
+    background: #ffffffdd;
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    border-radius: 12px;
+    width: 85%;
+    margin: 0 auto;
     gap: 10px;
-    width: 100%;
-    align-items: center;
   }
 
   .pet-navbar.nav-open .nav-links {
     display: flex;
   }
-
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    min-width: 80%;
-    border-radius: 0;
-    display: none;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown .dropbtn {
-    width: 80%;
-    text-align: center;
-  }
-}
-
-/* Carousel */
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 40px auto;
-  overflow: hidden;
-  background: transparent;
-  border-radius: 10px;
-  padding: 0;
-}
-
-.carousel-inner {
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 10px;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-image: none !important;
-  width: 30px;
-  height: 30px;
-}
-
-.carousel-control-prev-icon::after,
-.carousel-control-next-icon::after {
-  font-size: 30px;
-  color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 /* Featured Animals */
@@ -287,7 +203,59 @@ header .banner {
   transform: scale(1.05);
 }
 
-/* Cart Badge */
+/* Footer */
+footer {
+  margin-top: 105px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.carousel-inner {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none !important;
+  width: 30px;
+  height: 30px;
+}
+
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  font-size: 30px;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .cart-icon {
   position: relative;
 }
@@ -303,17 +271,6 @@ header .banner {
   font-size: 12px;
 }
 
-/* Footer */
-footer {
-  margin-top: 105px;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-  background-color: #333;
-  color: #fff;
-}
-
-/* Page wrapper for sticky footer */
 .page-wrapper {
   display: flex;
   flex-direction: column;
