@@ -220,11 +220,12 @@ footer {
 }
 
 /* Carousel */
+/* Carousel */
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 1000px;
-  margin: 40px auto;
+  max-width: 800px; /* reduced from 1000px to 800px for smaller footprint */
+  margin: 30px auto; /* reduced margin */
   overflow: hidden;
   background: transparent;
   border-radius: 10px;
@@ -239,7 +240,7 @@ footer {
 .carousel-item img {
   width: 100%;
   height: auto;
-  max-height: 450px;
+  max-height: 350px; /* reduced from 450px to 350px */
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
@@ -249,19 +250,19 @@ footer {
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .carousel {
-    max-width: 100%; /* full width on mobile */
+    max-width: 95%; /* maintain full width on mobile but with small side padding */
     margin: 20px auto;
   }
 
   .carousel-item img {
-    max-height: 250px; /* reduce height on mobile */
+    max-height: 220px; /* reduced from 250px */
   }
 }
 
 /* Extra small devices */
 @media (max-width: 480px) {
   .carousel-item img {
-    max-height: 180px; /* even smaller for very small screens */
+    max-height: 150px; /* reduced from 180px */
   }
 }
 
