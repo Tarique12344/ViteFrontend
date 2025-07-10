@@ -6,9 +6,9 @@ import '../styles/homepage.css';
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isNavOpen, setIsNavOpen] = useState(false); // ✅ NEW
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -23,11 +23,9 @@ const NavBar = () => {
     navigate('/login');
   };
 
-  if (isLoggedIn === null) return null;
-
   return (
     <nav className={`pet-navbar ${isNavOpen ? 'nav-open' : ''}`}>
-      {/* ✅ Mobile Toggle Button */}
+      {/* Mobile Toggle */}
       <div
         className="nav-toggle"
         onClick={() => setIsNavOpen(!isNavOpen)}
