@@ -85,7 +85,7 @@ header .banner {
 .dropbtn {
   text-decoration: none;
   color: #333;
-  background: #007cf0;
+  background:#88c7e4;
   backdrop-filter: blur(4px);
   padding: 8px 14px;
   border-radius: 10px;
@@ -139,7 +139,7 @@ header .banner {
   .nav-links {
     display: none;
     flex-direction: column;
-    background: #ffffffdd;
+    /* background: #ffffffdd; */
     backdrop-filter: blur(6px);
     padding: 20px;
     border-radius: 12px;
