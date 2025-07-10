@@ -2,9 +2,8 @@
   background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
   border-radius: 25px;
   padding: 2rem 1rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin-bottom: 3rem;
-  display: block;
+  /* Removed shadow: */
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
   margin-top: 60px;
   margin-bottom: 60px; /* Adds spacing below the weather card */
   text-align: center;
@@ -12,7 +11,6 @@
   z-index: 1;
   position: relative;
 }
-
 
 .weather-title {
   font-size: 1.8rem;
