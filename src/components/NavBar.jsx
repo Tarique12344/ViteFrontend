@@ -8,6 +8,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false); // ✅ NEW
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -25,13 +26,21 @@ const NavBar = () => {
   if (isLoggedIn === null) return null;
 
   return (
-    <nav className="pet-navbar">
+    <nav className={`pet-navbar ${isNavOpen ? 'nav-open' : ''}`}>
+      {/* ✅ Mobile Toggle Button */}
+      <div
+        className="nav-toggle"
+        onClick={() => setIsNavOpen(!isNavOpen)}
+      >
+        {isNavOpen ? '✖ Close' : '☰ Menu'}
+      </div>
+
       <div className="nav-links">
         <Link to="/">🏠 Home</Link>
         <Link to="/about">🐶 About</Link>
         <Link to="/shop">🛒 Adoption</Link>
         <Link to="/store">🛍️ Store</Link>
-        <Link to="/cart">🛒 Cart</Link> {/* ✅ Added Cart Page Link */}
+        <Link to="/cart">🛒 Cart</Link>
         <Link to="/contact">📞 Contact</Link>
 
         {isLoggedIn && isAdmin && (
