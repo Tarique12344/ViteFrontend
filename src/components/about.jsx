@@ -9,7 +9,7 @@ const About = () => {
     <div>
       {/* Banner */}
       <header className="banner text-center p-4 fw-bold">
-        About Us - Simple Pets 🐾
+         Simple Pets - About Us 🐾
       </header>
 
       {/* Navbar */}
