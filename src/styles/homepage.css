@@ -318,7 +318,7 @@ footer {
 .cart-container {
   max-width: 1000px;
   margin: 0 auto;
-  background: #fefcfb;
+  /* background: #fefcfb; */
   border-radius: 1rem;
   padding: 1.5rem;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
