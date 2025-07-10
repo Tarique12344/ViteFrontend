@@ -2,10 +2,9 @@
   background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
   border-radius: 25px;
   padding: 2rem 1rem;
-  /* Removed shadow: */
-  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
+  box-shadow: none; /* explicitly removed */
   margin-top: 60px;
-  margin-bottom: 60px; /* Adds spacing below the weather card */
+  margin-bottom: 60px;
   text-align: center;
   clear: both;
   z-index: 1;
@@ -23,6 +22,7 @@
   background-color: #fffdfd;
   border-radius: 20px;
   padding: 1.5rem;
+  box-shadow: none; /* explicitly removed */
 }
 
 .weather-dog {
