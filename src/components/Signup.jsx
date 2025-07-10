@@ -1,7 +1,5 @@
-// src/components/Signup.jsx
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // ✅ Import Link
+import { Link, useNavigate } from 'react-router-dom'; // ✅ Added useNavigate
 import NavBar from './NavBar';
 import Footer from './Footer';
 import '../styles/homepage.css';
@@ -10,8 +8,9 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // ✅ Initialize navigate
 
-  const baseURL = 'https://vitebackend.onrender.com'; // ✅ Hardcoded for Render
+  const baseURL = 'https://vitebackend.onrender.com';
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -29,7 +28,7 @@ const Signup = () => {
       if (res.ok) {
         setMessage('Signup successful! Redirecting to login...');
         setTimeout(() => {
-          window.location.href = '/login';
+          navigate('/login'); // ✅ Use React Router navigation
         }, 1500);
       } else {
         setMessage(data.message || 'Signup failed');
@@ -77,7 +76,7 @@ const Signup = () => {
               Signup
             </button>
             <p className="mt-3 text-center">
-              Have an account already? <Link to="/login">Login Here</Link> {/* ✅ Changed */}
+              Have an account already? <Link to="/login">Login Here</Link>
             </p>
           </form>
           {message && <p className="mt-3 text-center">{message}</p>}
