@@ -13,7 +13,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Contact from './components/Contact';
 import EmployeeLogin from './components/Employeelogin';
-import Cart from './components/Cart'; // ✅ Added cart page
+import Cart from './components/Cart'; // ✅ Cart page
 
 function App() {
   const isLoggedIn = !!localStorage.getItem('token');
@@ -22,28 +22,38 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Public routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/store" element={<Store />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/employee-login" element={<EmployeeLogin />} />
-        <Route path="/cart" element={<Cart />} /> {/* ✅ New cart route */}
 
-        {/* Protected Route: Add Pet */}
+        {/* Protected routes (require login) */}
+        <Route
+          path="/shop"
+          element={isLoggedIn ? <Shop /> : <Navigate to="/login" replace />}
+        />
+        <Route
+          path="/store"
+          element={isLoggedIn ? <Store /> : <Navigate to="/login" replace />}
+        />
+        <Route
+          path="/cart"
+          element={isLoggedIn ? <Cart /> : <Navigate to="/login" replace />}
+        />
+
+        {/* Protected route for adding a pet (any logged in user) */}
         <Route
           path="/add-pet"
           element={isLoggedIn ? <PetForm /> : <Navigate to="/login" replace />}
         />
 
-        {/* Protected Route: StoreForm (Admin only) */}
+        {/* Admin-only route */}
         <Route
           path="/storeform"
-          element={
-            isLoggedIn && isAdmin ? <StoreForm /> : <Navigate to="/login" replace />
-          }
+          element={isLoggedIn && isAdmin ? <StoreForm /> : <Navigate to="/login" replace />}
         />
       </Routes>
     </Router>

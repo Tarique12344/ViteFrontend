@@ -36,9 +36,9 @@ const NavBar = () => {
       <div className="nav-links">
         <Link to="/">🏠 Home</Link>
         <Link to="/about">🐶 About</Link>
-        <Link to="/shop">🛒 Adoption</Link>
-        <Link to="/store">🛍️ Store</Link>
-        <Link to="/cart">🛒 Cart</Link>
+        {isLoggedIn && <Link to="/shop">🛒 Adoption</Link>}
+        {isLoggedIn && <Link to="/store">🛍️ Store</Link>}
+        {isLoggedIn && <Link to="/cart">🛒 Cart</Link>}
         <Link to="/contact">📞 Contact</Link>
 
         {isLoggedIn && isAdmin && (
@@ -59,7 +59,8 @@ const NavBar = () => {
               color: '#4b2e2e',
               background: '#88c7e4',
               padding: '10px 20px',
-              borderRadius: '20px'
+              borderRadius: '20px',
+              userSelect: 'none'
             }}
           >
             🚪 Logout {isAdmin && '👑'}
