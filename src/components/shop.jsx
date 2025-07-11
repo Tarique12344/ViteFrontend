@@ -126,7 +126,7 @@ const Shop = () => {
                 <button type="button" className="btn-close" onClick={closeModal}></button>
               </div>
               <div className="modal-body text-center">
-                <p>Congrats! You will be emailed soon about adopting <strong>{selectedPet.name}</strong> 🐾.</p>
+                <p>Congrats! You will be emailed in 1 - 2 business days about adopting <strong>{selectedPet.name}</strong> 🐾.</p>
               </div>
               <div className="modal-footer justify-content-center">
                 <button type="button" className="btn btn-secondary" onClick={closeModal}>
